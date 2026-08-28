@@ -121,17 +121,18 @@ function initFAQ() {
 }
 
 /* ============================================
-   WHATSAPP FLOAT BUTTON
+   FLOATING ACTION BUTTONS (WhatsApp & Instagram)
    ============================================ */
 function initWhatsAppFloat() {
-    const btn = document.querySelector('.whatsapp-float');
+    const floatingActions = document.getElementById('floatingActions') || document.querySelector('.whatsapp-float');
+    if (!floatingActions) return;
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (!entry.isIntersecting) {
-                btn.classList.add('visible');
+                floatingActions.classList.add('visible');
             } else {
-                btn.classList.remove('visible');
+                floatingActions.classList.remove('visible');
             }
         });
     }, { threshold: 0.5 });
